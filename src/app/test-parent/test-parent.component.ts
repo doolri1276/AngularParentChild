@@ -11,9 +11,15 @@ export class TestParentComponent implements OnInit {
   myState = "great!";
   uniqueVal = "OMG";
 
+  receivedValue;
+
   constructor() { }
 
   ngOnInit() {
+  }
+
+  receivedData(resultVal){
+    this.receivedValue=resultVal;
   }
 
 }
