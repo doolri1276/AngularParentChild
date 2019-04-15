@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { TestChildComponent } from './test-child/test-child.component';
 
 @Component({
   selector: 'app-test-parent',
@@ -6,6 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./test-parent.component.css']
 })
 export class TestParentComponent implements OnInit {
+  @ViewChild(TestChildComponent) textChild: TestChildComponent;
   title="test parent"
 
   myState = "great!";
