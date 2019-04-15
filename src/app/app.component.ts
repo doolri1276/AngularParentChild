@@ -7,4 +7,15 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'ParentChild';
+
+  myOpenState: string = "let it be";
+  private _internalState: string = 'not authorized';
+
+  foo() {
+    console.log('foo');
+  }
+
+  private bar() {
+    console.log('bar');
+  }
 }
