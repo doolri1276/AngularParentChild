@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, QueryList, ViewChildren } from '@angular/core';
 import { TestChildComponent } from './test-child/test-child.component';
 
 @Component({
@@ -7,21 +7,22 @@ import { TestChildComponent } from './test-child/test-child.component';
   styleUrls: ['./test-parent.component.css']
 })
 export class TestParentComponent implements OnInit {
-  @ViewChild(TestChildComponent) textChild: TestChildComponent;
-  title="test parent"
+  checkListNums: number[];
+  @ViewChildren(TestChildComponent) testChild: QueryList<TestChildComponent>;
 
-  myState = "great!";
-  uniqueVal = "OMG";
-
-  receivedValue;
-
-  constructor() { }
+  constructor() { 
+    this.checkListNums = [1, 2, 3];
+  }
 
   ngOnInit() {
   }
 
-  receivedData(resultVal){
-    this.receivedValue=resultVal;
+  checkedAll() {
+    this.testChild.map((comp) => comp.isChecked = true);
+  }
+
+  unCheckedAll() {
+    this.testChild.map((comp) => comp.isChecked = false);
   }
 
 }
